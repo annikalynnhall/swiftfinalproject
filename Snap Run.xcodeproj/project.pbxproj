@@ -24,6 +24,8 @@
 		9AB8E5E8226E720E00522488 /* CLLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB8E5E7226E720E00522488 /* CLLocationManager.swift */; };
 		9AB8E5EA226E782500522488 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB8E5E9226E782500522488 /* Location.swift */; };
 		9AB8E5EC226E7B7D00522488 /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB8E5EB226E7B7D00522488 /* Locations.swift */; };
+		9ADCAB7B2273621C00B941DC /* FormatDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADCAB7A2273621C00B941DC /* FormatDisplay.swift */; };
+		9ADCAB7F227364D200B941DC /* UnitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADCAB7E227364D200B941DC /* UnitExtensions.swift */; };
 		EE1DB9FD15FFE4177814327A /* Pods_Snap_Run.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1EFB5E1DEADF7B678AE8E4B /* Pods_Snap_Run.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +51,8 @@
 		9AB8E5E7226E720E00522488 /* CLLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationManager.swift; sourceTree = "<group>"; };
 		9AB8E5E9226E782500522488 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		9AB8E5EB226E7B7D00522488 /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
+		9ADCAB7A2273621C00B941DC /* FormatDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDisplay.swift; sourceTree = "<group>"; };
+		9ADCAB7E227364D200B941DC /* UnitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UnitExtensions.swift; path = "/Users/annikahall/Desktop/Snap Run/Snap Run/UnitExtensions.swift"; sourceTree = "<absolute>"; };
 		C1EFB5E1DEADF7B678AE8E4B /* Pods_Snap_Run.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Snap_Run.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -105,6 +109,8 @@
 				9AB8E5E1226E568700522488 /* PastRunViewController.swift */,
 				9A13E286226E3A4A00C1EFB3 /* Main.storyboard */,
 				9A13E289226E3A4A00C1EFB3 /* Assets.xcassets */,
+				9ADCAB7E227364D200B941DC /* UnitExtensions.swift */,
+				9ADCAB7A2273621C00B941DC /* FormatDisplay.swift */,
 				9AB8E5E7226E720E00522488 /* CLLocationManager.swift */,
 				9AB8E5D5226E424B00522488 /* SegueFromRight.swift */,
 				9AB8E5D9226E461F00522488 /* SegueFromLeft.swift */,
@@ -262,6 +268,7 @@
 				9AB8E5DC226E4F9E00522488 /* FinishedRunViewController.swift in Sources */,
 				9A13E285226E3A4A00C1EFB3 /* ViewController.swift in Sources */,
 				9AB8E5E0226E553600522488 /* SavedRunsViewController.swift in Sources */,
+				9ADCAB7B2273621C00B941DC /* FormatDisplay.swift in Sources */,
 				9AB8E5E6226E6C9300522488 /* Runs.swift in Sources */,
 				9AB8E5E4226E6C8500522488 /* Run.swift in Sources */,
 				9AB8E5E8226E720E00522488 /* CLLocationManager.swift in Sources */,
@@ -273,6 +280,7 @@
 				9AB8E5D6226E424B00522488 /* SegueFromRight.swift in Sources */,
 				9AB8E5DA226E461F00522488 /* SegueFromLeft.swift in Sources */,
 				9AB8E5D8226E458A00522488 /* NewRunViewController.swift in Sources */,
+				9ADCAB7F227364D200B941DC /* UnitExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

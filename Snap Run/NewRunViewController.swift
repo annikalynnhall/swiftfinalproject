@@ -22,7 +22,7 @@ class NewRunViewController: UIViewController {
     let locationManager = LocationManager.shared
     var timer: Timer?
     var seconds = 0
-    var distance = 0.0
+    var distance = Measurement(value: 0.0, unit: UnitLength.meters)
     var locationList: [CLLocation] = []
     var run: Run?
 
@@ -63,7 +63,7 @@ class NewRunViewController: UIViewController {
     
     func startRun() {
         seconds = 0
-        distance = 0.0
+        distance = Measurement(value: 0.0, unit: UnitLength.meters)
         locationList.removeAll()
         updateDisplay()
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
@@ -81,7 +81,7 @@ class NewRunViewController: UIViewController {
     }
     
     func saveRun(){
-        let newRun = Run(distance: distance, duration: seconds, pace: distance / Double(seconds), pathImage: "", date: Date(), locations: Locations())
+        let newRun = Run(distance: distance.value, duration: seconds, pace: distance.value / Double(seconds), pathImage: "", date: Date(), locations: Locations())
         for location in locationList {
             let locationObject = Location()
             locationObject.timeStamp = location.timestamp
@@ -99,9 +99,15 @@ class NewRunViewController: UIViewController {
     }
     
     func updateDisplay() {
-        milesLabel.text = "\(distance)"
-        timeLabel.text = "\(seconds)"
-        paceLabel.text = "\(distance / Double(seconds))"
+        let formattedDistance = FormatDisplay.distance(distance)
+        let formattedTime = FormatDisplay.time(seconds)
+        let formattedPace = FormatDisplay.pace(distance: distance,
+                                               seconds: seconds,
+                                               outputUnit: UnitSpeed.minutesPerMile)
+        
+        milesLabel.text = "\(formattedDistance)"
+        timeLabel.text = "\(formattedTime)"
+        paceLabel.text = "\(formattedPace)"
         
     }
     
@@ -136,7 +142,7 @@ extension NewRunViewController: CLLocationManagerDelegate {
             
             if let lastLocation = locationList.last {
                 let delta = newLocation.distance(from: lastLocation)
-                distance = distance + delta
+                distance = distance + Measurement(value: delta, unit: UnitLength.meters)
             }
             locationList.append(newLocation)
         }

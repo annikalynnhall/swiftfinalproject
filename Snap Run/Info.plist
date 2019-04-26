@@ -49,5 +49,7 @@
 	<string>Snap Run needs access to you location.</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Snap Run needs access to you location.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Snap Run needs access to you location.</string>
 </dict>
 </plist>

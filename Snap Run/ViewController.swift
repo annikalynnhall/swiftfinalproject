@@ -16,9 +16,6 @@ class ViewController: UIViewController {
     
     var newRunX: CGFloat!
     var savedRunsY: CGFloat!
-    //var runs = Runs()
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,13 +32,6 @@ class ViewController: UIViewController {
         UIView.animate(withDuration: 1.0, delay: 1.5, animations:{self.savedRunsButton.frame.origin.y = self.savedRunsY})
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "ShowTableView"{
-//            let destination = segue.destination as! SavedRunsViewController
-//            destination.runs = runs
-//
-//        }
-//    }
 
 
 }

@@ -24,21 +24,25 @@ class FinishedRunViewController: UIViewController {
         
         loadMap()
         
-        milesLabel.text = "\(finishedRun.distance)"
-        timeLabel.text = "\(finishedRun.duration)"
-        paceLabel.text = "\(finishedRun.distance / Double(finishedRun.duration))"
+        let formattedDistance = FormatDisplay.distance(Measurement(value: finishedRun.distance, unit: UnitLength.meters))
+        let formattedTime = FormatDisplay.time(finishedRun.duration)
+        let formattedPace = FormatDisplay.pace(distance: Measurement(value: finishedRun.distance, unit: UnitLength.meters),
+                                               seconds: finishedRun.duration,
+                                               outputUnit: UnitSpeed.minutesPerMile)
+        milesLabel.text = "\(formattedDistance)"
+        timeLabel.text = "\(formattedTime)"
+        paceLabel.text = "\(formattedPace)"
     }
     
     func mapRegion() -> MKCoordinateRegion? {
-        guard case let locations = finishedRun.locations, locations.locationsArray.count > 0 else{
+        guard finishedRun.locations.locationsArray.count > 0 else{
             return nil
         }
+        let locations = finishedRun.locations
         let latitudes = locations.locationsArray.map { location -> Double in
-        let location = location as! Location
             return location.latitude
         }
         let longitudes = locations.locationsArray.map { location -> Double in
-        let location = location as! Location
             return location.longitude
         }
 
@@ -58,12 +62,11 @@ class FinishedRunViewController: UIViewController {
 
     
     func polyLine() -> MKPolyline {
-        guard case let locations = finishedRun.locations, locations.locationsArray.count > 0 else {
+        guard finishedRun.locations.locationsArray.count > 0 else {
             return MKPolyline()
         }
-
+        let locations = finishedRun.locations
         let coords: [CLLocationCoordinate2D] = locations.locationsArray.map { location in
-            let location = location as! Location
             return CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
         }
         return MKPolyline(coordinates: coords, count: coords.count)
@@ -86,12 +89,12 @@ class FinishedRunViewController: UIViewController {
         mapView.addOverlay(polyLine())
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        let destination = segue.destination as! ViewController
-//        if segue.identifier == "ReturnHome"{
-//            destination.runs.runsArray.append(finishedRun)
-//        }
-//    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! SavedRunsViewController
+        if segue.identifier == "SaveRun"{
+            destination.runs.runsArray.append(finishedRun)
+        }
+    }
     
     
 
