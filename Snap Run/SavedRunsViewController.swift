@@ -7,11 +7,15 @@
 //
 
 import UIKit
+import CoreLocation
+import Firebase
+
 
 class SavedRunsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     var runs = Runs()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,3 +56,5 @@ extension SavedRunsViewController: UITableViewDelegate, UITableViewDataSource {
     
     
 }
+
+

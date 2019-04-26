@@ -45,11 +45,23 @@
                                     <segue destination="axB-VZ-ZuP" kind="show" identifier="ShowStartNewRun" customClass="SegueFromRight" customModule="Snap_Run" customModuleProvider="target" id="OqF-r2-IT5"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UXD-Hq-VaD">
+                                <rect key="frame" x="20" y="44" width="86" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="AvenirNextCondensed-Regular" family="Avenir Next Condensed" pointSize="30"/>
+                                <state key="normal" title="sign out">
+                                    <color key="titleColor" red="0.48627450979999998" green="0.2793231659" blue="0.2357085357" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="signOutPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2U7-2p-we4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="homeUIView" destination="8bC-Xf-vdC" id="2VM-mQ-sD3"/>
                         <outlet property="logoImageView" destination="3GN-2S-RZj" id="u2f-Wb-5Kp"/>
                         <outlet property="newRunButton" destination="s4N-Ps-bEI" id="7os-wQ-0bs"/>
                         <outlet property="savedRunsButton" destination="BLR-dj-rl4" id="Bcb-GB-mUY"/>
