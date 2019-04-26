@@ -14,25 +14,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var newRunButton: UIButton!
     @IBOutlet weak var savedRunsButton: UIButton!
     
-    var newRunX: CGFloat!
-    var savedRunsY: CGFloat!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        newRunX = newRunButton.frame.origin.x
-        savedRunsY = savedRunsButton.frame.origin.y
+
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        newRunButton.frame.origin.x = self.view.frame.width
-        savedRunsButton.frame.origin.y = self.view.frame.height
-        
-        UIView.animate(withDuration: 1.0, delay: 1.0, animations:{self.newRunButton.frame.origin.x = self.newRunX})
-        
-        UIView.animate(withDuration: 1.0, delay: 1.5, animations:{self.savedRunsButton.frame.origin.y = self.savedRunsY})
-    }
     
-
-
 }
 

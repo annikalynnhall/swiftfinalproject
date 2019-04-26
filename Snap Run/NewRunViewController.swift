@@ -36,6 +36,7 @@ class NewRunViewController: UIViewController {
         performSegue(withIdentifier: "ShowHome", sender: (Any).self)
     }
     
+    
     @IBAction func startButtonPressed(_ sender: UIButton) {
         if startRunButton.titleLabel?.text == "START"{
             startRun()
@@ -48,7 +49,9 @@ class NewRunViewController: UIViewController {
             navigationBar.barTintColor = UIColor(red: 124/255.0, green: 71/255.0, blue: 60/255.0, alpha: 1.0)
             viewRunDetailsButton.isHidden = false
             startRunButton.isHidden = true
-            
+            for location in (run?.locations.locationsArray)!{
+                print("\(location)")
+            }
         } else {
             performSegue(withIdentifier: "ShowFinishedRun", sender: (Any).self)
         }

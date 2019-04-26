@@ -28,6 +28,13 @@ class SavedRunsViewController: UIViewController {
         }
     }
     
+    
+    
+    @IBAction func donePressed(_ sender: UIBarButtonItem) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    
 
 }
 
