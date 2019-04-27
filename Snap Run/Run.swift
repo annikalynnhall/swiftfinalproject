@@ -9,7 +9,7 @@
 import Foundation
 import Firebase
 import FirebaseUI
-import MapKit
+import CoreLocation
 
 class Run {
     
@@ -17,25 +17,25 @@ class Run {
     var distance: Double
     var duration: Int
     var pace: Double
-    var date: Date
-    var locations: Locations
+    var latitudes: [Double]
+    var longitudes: [Double]
     var postingUserID: String
     var documentID: String
     
     var dictionary: [String: Any] {
         return ["distance": distance, "duration": duration, "pace":
-            pace, "date": date, "locations":
-            locations, "postingUserID": postingUserID]
+            pace, "latitudes":
+            latitudes, "longitudes": longitudes, "postingUserID": postingUserID]
     }
 
     
     
-    init(distance: Double, duration: Int, pace: Double, date: Date, locations: Locations, postingUserID: String, documentID: String){
+    init(distance: Double, duration: Int, pace: Double, latitudes: [Double], longitudes: [Double], postingUserID: String, documentID: String){
         self.distance = distance
         self.duration = duration
         self.pace = pace
-        self.date = date
-        self.locations = locations
+        self.latitudes = latitudes
+        self.longitudes = longitudes
         self.postingUserID = postingUserID
         self.documentID = documentID
     }
@@ -44,10 +44,10 @@ class Run {
         let distance = dictionary["distance"] as! Double? ?? 0.0
         let duration = dictionary["duration"] as! Int? ?? 0
         let pace = dictionary["pace"] as! Double? ?? 0.0
-        let date = dictionary["date"] as! Date
-        let locations = dictionary["locations"] as! Locations
+        let latitudes = dictionary["latitudes"] as! [Double]? ?? []
+        let longitudes = dictionary["longitudes"] as! [Double]? ?? []
         let postingUserID = dictionary["postingUserID"] as! String? ?? ""
-        self.init(distance: distance, duration: duration, pace: pace, date: date, locations: locations, postingUserID: postingUserID, documentID: "")
+        self.init(distance: distance, duration: duration, pace: pace, latitudes: latitudes, longitudes: longitudes, postingUserID: postingUserID, documentID: "")
     }
     
     func saveData(completion: @escaping (Bool) -> ())  {

@@ -52,9 +52,7 @@ class NewRunViewController: UIViewController {
             navigationBar.barTintColor = UIColor(red: 124/255.0, green: 71/255.0, blue: 60/255.0, alpha: 1.0)
             viewRunDetailsButton.isHidden = false
             startRunButton.isHidden = true
-            for location in (run?.locations.locationsArray)!{
-                print("\(location)")
-            }
+ 
         } else {
             performSegue(withIdentifier: "ShowFinishedRun", sender: (Any).self)
         }
@@ -87,14 +85,15 @@ class NewRunViewController: UIViewController {
     }
     
     func saveRun(){
-        let newRun = Run(distance: distance.value, duration: seconds, pace: distance.value / Double(seconds), date: Date(), locations: Locations(), postingUserID: "", documentID: "")
+        let newRun = Run(distance: distance.value, duration: seconds, pace: distance.value / Double(seconds), latitudes: [Double](), longitudes: [Double](), postingUserID: "", documentID: "")
         for location in locationList {
             let locationObject = Location()
             locationObject.timeStamp = location.timestamp
             locationObject.latitude = location.coordinate.latitude
             locationObject.longitude = location.coordinate.longitude
             
-            newRun.locations.locationsArray.append(locationObject)
+            newRun.latitudes.append(locationObject.latitude)
+            newRun.longitudes.append(locationObject.longitude)
         }
         run = newRun
     }

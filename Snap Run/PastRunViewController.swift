@@ -34,25 +34,14 @@ class PastRunViewController: UIViewController {
         distanceLabel.text = "\(formattedDistance)"
         durationLabel.text = "\(formattedTime)"
         paceLabel.text = "\(formattedPace)"
-        
-        distanceLabel.text = "\(run.distance)"
-        durationLabel.text = "\(run.duration)"
-        paceLabel.text = "\(run.distance / Double(run.duration))"
-
     }
     
     func mapRegion() -> MKCoordinateRegion? {
-        guard run.locations.locationsArray.count > 0 else{
+        guard run.latitudes.count > 0 else{
             return nil
         }
-        let locations = run.locations
-        let latitudes = locations.locationsArray.map { location -> Double in
-            return location.latitude
-        }
-        let longitudes = locations.locationsArray.map { location -> Double in
-            return location.longitude
-        }
-        
+        var latitudes = run.latitudes
+        var longitudes = run.longitudes
         
         let maxLat = latitudes.max()!
         let minLat = latitudes.min()!
@@ -69,31 +58,36 @@ class PastRunViewController: UIViewController {
     
     
     func polyLine() -> MKPolyline {
-        guard run.locations.locationsArray.count > 0 else {
-            return MKPolyline()
+        var latitudes = run.latitudes
+        var longitudes = run.longitudes
+        var coords: [CLLocationCoordinate2D] = []
+        for i in 0 ..< latitudes.count {
+            coords.append(CLLocationCoordinate2D(latitude: latitudes[i], longitude: longitudes[i]))
         }
-        let locations = run.locations
-        let coords: [CLLocationCoordinate2D] = locations.locationsArray.map { location in
-            return CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
-        }
+        
+        
         return MKPolyline(coordinates: coords, count: coords.count)
     }
     
     func loadMap() {
-        guard case let locations = run.locations.locationsArray,
-            locations.count > 0,
-            let region = mapRegion()
-            else {
-                let alert = UIAlertController(title: "Error",
-                                              message: "Sorry, this run has no locations saved",
-                                              preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .cancel))
-                present(alert, animated: true)
-                return
+        
+        let region = mapRegion()
+        if region != nil {
+            pathMapView.setRegion(region!, animated: true)
+            pathMapView.addOverlay(polyLine())
         }
         
-        pathMapView.setRegion(region, animated: true)
-        pathMapView.addOverlay(polyLine())
     }
+}
 
+extension PastRunViewController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        guard let polyline = overlay as? MKPolyline else {
+            return MKOverlayRenderer(overlay: overlay)
+        }
+        let renderer = MKPolylineRenderer(polyline: polyline)
+        renderer.strokeColor = UIColor(red: 108/255.0, green: 124/255.0, blue: 61/255.0, alpha: 1.0)
+        renderer.lineWidth = 3
+        return renderer
+    }
 }

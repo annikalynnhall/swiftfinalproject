@@ -57,7 +57,7 @@ extension SavedRunsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = "\(runs.runsArray[indexPath.row].date)"
+        cell.textLabel?.text = "\(runs.runsArray[indexPath.row].postingUserID)"
         return cell
     }
     

@@ -37,18 +37,12 @@ class FinishedRunViewController: UIViewController {
     }
     
     func mapRegion() -> MKCoordinateRegion? {
-        guard finishedRun.locations.locationsArray.count > 0 else{
+        guard finishedRun.latitudes.count > 0 else{
             return nil
         }
-        let locations = finishedRun.locations
-        let latitudes = locations.locationsArray.map { location -> Double in
-            return location.latitude
-        }
-        let longitudes = locations.locationsArray.map { location -> Double in
-            return location.longitude
-        }
-
-
+        var latitudes = finishedRun.latitudes
+        var longitudes = finishedRun.longitudes
+        
         let maxLat = latitudes.max()!
         let minLat = latitudes.min()!
         let maxLong = longitudes.max()!
@@ -64,21 +58,25 @@ class FinishedRunViewController: UIViewController {
 
     
     func polyLine() -> MKPolyline {
-        
-        let locations = finishedRun.locations.locationsArray
+        var latitudes = finishedRun.latitudes
+        var longitudes = finishedRun.longitudes
         var coords: [CLLocationCoordinate2D] = []
-        for location in locations {
-            coords.append(CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude))
+        for i in 0 ..< latitudes.count {
+            coords.append(CLLocationCoordinate2D(latitude: latitudes[i], longitude: longitudes[i]))
         }
+        
+        
         return MKPolyline(coordinates: coords, count: coords.count)
     }
     
     func loadMap() {
-        let locations = finishedRun.locations.locationsArray
-        let region = mapRegion()
 
-        mapView.setRegion(region!, animated: true)
-        mapView.addOverlay(polyLine())
+        let region = mapRegion()
+        if region != nil {
+            mapView.setRegion(region!, animated: true)
+            mapView.addOverlay(polyLine())
+        }
+
     }
     
     
