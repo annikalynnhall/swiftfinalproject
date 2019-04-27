@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreLocation
+import Firebase
+import FirebaseUI
 import MapKit
 
 class NewRunViewController: UIViewController {
@@ -30,6 +32,7 @@ class NewRunViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
+
     }
     
     @IBAction func cancelButtonPressed(_ sender: UIBarButtonItem) {
@@ -84,13 +87,13 @@ class NewRunViewController: UIViewController {
     }
     
     func saveRun(){
-        let newRun = Run(distance: distance.value, duration: seconds, pace: distance.value / Double(seconds), pathImage: "", date: Date(), locations: Locations())
+        let newRun = Run(distance: distance.value, duration: seconds, pace: distance.value / Double(seconds), date: Date(), locations: Locations(), postingUserID: "", documentID: "")
         for location in locationList {
             let locationObject = Location()
             locationObject.timeStamp = location.timestamp
             locationObject.latitude = location.coordinate.latitude
             locationObject.longitude = location.coordinate.longitude
-            //CHECK THIS OUT I'M NOT SURE WHAT THIS DOES...
+            
             newRun.locations.locationsArray.append(locationObject)
         }
         run = newRun

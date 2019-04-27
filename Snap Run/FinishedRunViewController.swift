@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseUI
 import MapKit
 import CoreLocation
 
@@ -62,39 +64,37 @@ class FinishedRunViewController: UIViewController {
 
     
     func polyLine() -> MKPolyline {
-        guard finishedRun.locations.locationsArray.count > 0 else {
-            return MKPolyline()
-        }
-        let locations = finishedRun.locations
-        let coords: [CLLocationCoordinate2D] = locations.locationsArray.map { location in
-            return CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+        
+        let locations = finishedRun.locations.locationsArray
+        var coords: [CLLocationCoordinate2D] = []
+        for location in locations {
+            coords.append(CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude))
         }
         return MKPolyline(coordinates: coords, count: coords.count)
     }
     
     func loadMap() {
-        guard case let locations = finishedRun.locations.locationsArray,
-            locations.count > 0,
-            let region = mapRegion()
-            else {
-                let alert = UIAlertController(title: "Error",
-                                              message: "Sorry, this run has no locations saved",
-                                              preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .cancel))
-                present(alert, animated: true)
-                return
-        }
+        let locations = finishedRun.locations.locationsArray
+        let region = mapRegion()
 
-        mapView.setRegion(region, animated: true)
+        mapView.setRegion(region!, animated: true)
         mapView.addOverlay(polyLine())
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! SavedRunsViewController
-        if segue.identifier == "SaveRun"{
-            destination.runs.runsArray.append(finishedRun)
+    
+
+    //ADD TO THIS FUNCTION to RETURN HOME
+    @IBAction func saveRunPressed(_ sender: UIButton) {
+        finishedRun.saveData() { success in
+            if success {
+                
+            } else{
+                print("Can't segue because of the error")
+            }
+
         }
     }
+    
     
     
 

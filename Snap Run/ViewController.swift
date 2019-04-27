@@ -22,11 +22,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var savedRunsButton: UIButton!
     
     var aUI: FUIAuth!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         aUI = FUIAuth.defaultAuthUI()
         aUI?.delegate = self
+
 
     }
     

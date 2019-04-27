@@ -96,6 +96,7 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <sections/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -354,7 +355,7 @@
                                     <color key="titleColor" red="0.48627450979999998" green="0.2793231659" blue="0.2357085357" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
-                                    <segue destination="cP3-0U-e1U" kind="show" identifier="SaveRun" id="MQx-Za-d9j"/>
+                                    <action selector="saveRunPressed:" destination="kN2-mV-uQQ" eventType="touchUpInside" id="eS9-Ww-SsO"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9s-Rj-fxN">
@@ -404,7 +405,4 @@
     <resources>
         <image name="trail" width="534" height="534"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="MQx-Za-d9j"/>
-    </inferredMetricsTieBreakers>
 </document>
