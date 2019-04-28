@@ -42,7 +42,6 @@ class ViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-//        signIn()
     }
     
     func loggedInView (){
@@ -71,7 +70,10 @@ class ViewController: UIViewController {
             ]
         if aUI.auth?.currentUser == nil {
             self.aUI?.providers = providers
-            present(aUI.authViewController(), animated: true, completion: { () in self.loggedInView() })
+            present(aUI.authViewController(), animated: true, completion: { () in
+                if self.aUI.auth?.currentUser != nil{
+                self.loggedInView()
+                } })
             
         } else {
             loggedInView()
@@ -105,6 +107,7 @@ class ViewController: UIViewController {
         // Set background color to white
         loginViewController.view.backgroundColor = UIColor.white
         
+        
         // Create a frame for an ImageView to hold our logo
         let marginInsets: CGFloat = 16 // logo will be 16 points from L and R margins
         let imageHeight: CGFloat = 225 // the height of our logo
@@ -123,6 +126,7 @@ class ViewController: UIViewController {
     
 }
 extension ViewController: FUIAuthDelegate {
+    
     func application(_ app: UIApplication, open url: URL,
                      options: [UIApplication.OpenURLOptionsKey : Any]) -> Bool {
         let sourceApplication =
