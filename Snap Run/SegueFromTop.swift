@@ -16,7 +16,7 @@ class SegueFromTop: UIStoryboardSegue {
         src.view.superview?.insertSubview(dst.view, aboveSubview: src.view)
         dst.view.transform = CGAffineTransform(translationX: 0, y: -src.view.frame.size.height)
         
-        UIView.animate(withDuration: 0.5,
+        UIView.animate(withDuration: 1.0,
                        delay: 0.0,
                        options: .curveEaseInOut,
                        animations: {

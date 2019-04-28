@@ -14,12 +14,11 @@ import Firebase
 class SavedRunsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var runs: Runs!
+    var runs = Runs()
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        runs = Runs()
         tableView.delegate = self
         tableView.dataSource = self
 
@@ -57,7 +56,7 @@ extension SavedRunsViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = "\(runs.runsArray[indexPath.row].postingUserID)"
+        cell.textLabel?.text = "\(runs.runsArray[indexPath.row].runName)"
         return cell
     }
     

@@ -23,18 +23,17 @@ class FinishedRunViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        mapView.delegate = self
         loadMap()
-        
-        let formattedDistance = FormatDisplay.distance(Measurement(value: finishedRun.distance, unit: UnitLength.meters))
-        let formattedTime = FormatDisplay.time(finishedRun.duration)
-        let formattedPace = FormatDisplay.pace(distance: Measurement(value: finishedRun.distance, unit: UnitLength.meters),
-                                               seconds: finishedRun.duration,
-                                               outputUnit: UnitSpeed.minutesPerMile)
+        let formattedTime = FormatRunData.formatTime(seconds: finishedRun.duration)
+        let formattedDistance = FormatRunData.formatDistance(distance: finishedRun.distance)
+        let formattedPace = FormatRunData.formatPace(distance: (finishedRun.distance * 0.000621371192), time: (Double(finishedRun.duration) / 3600))
         milesLabel.text = "\(formattedDistance)"
         timeLabel.text = "\(formattedTime)"
         paceLabel.text = "\(formattedPace)"
     }
+    
+    
     
     func mapRegion() -> MKCoordinateRegion? {
         guard finishedRun.latitudes.count > 0 else{
@@ -93,6 +92,8 @@ class FinishedRunViewController: UIViewController {
         }
     }
     
+
+    
     
     
 
@@ -105,7 +106,7 @@ extension FinishedRunViewController: MKMapViewDelegate {
         }
         let renderer = MKPolylineRenderer(polyline: polyline)
         renderer.strokeColor = UIColor(red: 108/255.0, green: 124/255.0, blue: 61/255.0, alpha: 1.0)
-        renderer.lineWidth = 3
+        renderer.lineWidth = 6
         return renderer
     }
 }

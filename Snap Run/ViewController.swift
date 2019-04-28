@@ -16,6 +16,9 @@ class ViewController: UIViewController {
 
     
     
+    @IBOutlet weak var signOutButton: UIButton!
+    @IBOutlet weak var RunItLabel: UILabel!
+    @IBOutlet weak var signInButton: UIButton!
     @IBOutlet var homeUIView: UIView!
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var newRunButton: UIButton!
@@ -28,13 +31,38 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         aUI = FUIAuth.defaultAuthUI()
         aUI?.delegate = self
+        if aUI.auth?.currentUser != nil {
+            loggedInView()
+        }
+        
+        
 
 
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        signIn()
+//        signIn()
+    }
+    
+    func loggedInView (){
+        signOutButton.isHidden = false
+        newRunButton.isHidden = false
+        savedRunsButton.isHidden = false
+        logoImageView.image = UIImage(named: "logo")
+        RunItLabel.textColor = UIColor.darkGray
+        signInButton.isHidden = true
+        homeUIView.backgroundColor = .white
+    }
+    
+    func loggedOutView(){
+        signOutButton.isHidden = true
+        newRunButton.isHidden = true
+        savedRunsButton.isHidden = true
+        logoImageView.image = UIImage(named: "logo white")
+        RunItLabel.textColor = .white
+        signInButton.isHidden = false
+        homeUIView.backgroundColor = UIColor(red: 108/255.0, green: 124/255.0, blue: 61/255.0, alpha: 1.0)
     }
     
     func signIn() {
@@ -43,19 +71,25 @@ class ViewController: UIViewController {
             ]
         if aUI.auth?.currentUser == nil {
             self.aUI?.providers = providers
-            present(aUI.authViewController(), animated: true, completion: nil)
+            present(aUI.authViewController(), animated: true, completion: { () in self.loggedInView() })
+            
         } else {
-            homeUIView.isHidden = false
+            loggedInView()
         }
     }
+    
+    @IBAction func signInButtonPressed(_ sender: Any) {
+        signIn()
+    }
+    
  
     
     @IBAction func signOutPressed(_ sender: UIButton) {
         do {
             try aUI!.signOut()
             print("^^^ Successfully signed out!")
-            homeUIView.isHidden = true
-            signIn()
+            loggedOutView()
+            
         } catch {
             homeUIView.isHidden = true
             print("*** ERROR: Couldn't sign out")
@@ -81,7 +115,7 @@ class ViewController: UIViewController {
         
         // Create the UIImageView using the frame created above & add the "logo" image
         let logoImageView = UIImageView(frame: logoFrame)
-        logoImageView.image = UIImage(named: "trail")
+        logoImageView.image = UIImage(named: "logo")
         logoImageView.contentMode = .scaleAspectFit // Set imageView to Aspect Fit
         loginViewController.view.addSubview(logoImageView) // Add ImageView to the login controller's main view
         return loginViewController
@@ -103,7 +137,7 @@ extension ViewController: FUIAuthDelegate {
     
     func authUI(_ authUI: FUIAuth, didSignInWith user: User?, error: Error?) {
         if let user = user {
-            homeUIView.isHidden = false
+            loggedInView()
             print("^^^ We signed in with the user \(user.email ?? "unknown e-mail")")
         }
     }

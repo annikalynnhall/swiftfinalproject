@@ -13,6 +13,7 @@
 		9A13E28A226E3A4A00C1EFB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A13E289226E3A4A00C1EFB3 /* Assets.xcassets */; };
 		9A13E28D226E3A4A00C1EFB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A13E28B226E3A4A00C1EFB3 /* LaunchScreen.storyboard */; };
 		9AB5E1292273AD3700F88279 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AB5E1282273AD3600F88279 /* GoogleService-Info.plist */; };
+		9AB5E12D2276196600F88279 /* FormatRunData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB5E12C2276196600F88279 /* FormatRunData.swift */; };
 		9AB8E5D6226E424B00522488 /* SegueFromRight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB8E5D5226E424B00522488 /* SegueFromRight.swift */; };
 		9AB8E5D8226E458A00522488 /* NewRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB8E5D7226E458A00522488 /* NewRunViewController.swift */; };
 		9AB8E5DA226E461F00522488 /* SegueFromLeft.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB8E5D9226E461F00522488 /* SegueFromLeft.swift */; };
@@ -41,6 +42,7 @@
 		9A13E28C226E3A4A00C1EFB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A13E28E226E3A4A00C1EFB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9AB5E1282273AD3600F88279 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		9AB5E12C2276196600F88279 /* FormatRunData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatRunData.swift; sourceTree = "<group>"; };
 		9AB8E5D5226E424B00522488 /* SegueFromRight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueFromRight.swift; sourceTree = "<group>"; };
 		9AB8E5D7226E458A00522488 /* NewRunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewRunViewController.swift; sourceTree = "<group>"; };
 		9AB8E5D9226E461F00522488 /* SegueFromLeft.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegueFromLeft.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				9A13E289226E3A4A00C1EFB3 /* Assets.xcassets */,
 				9ADCAB7E227364D200B941DC /* UnitExtensions.swift */,
 				9ADCAB7A2273621C00B941DC /* FormatDisplay.swift */,
+				9AB5E12C2276196600F88279 /* FormatRunData.swift */,
 				9AB8E5E7226E720E00522488 /* CLLocationManager.swift */,
 				9AB8E5D5226E424B00522488 /* SegueFromRight.swift */,
 				9AB8E5D9226E461F00522488 /* SegueFromLeft.swift */,
@@ -327,6 +330,7 @@
 				9AB8E5E0226E553600522488 /* SavedRunsViewController.swift in Sources */,
 				9ADCAB7B2273621C00B941DC /* FormatDisplay.swift in Sources */,
 				9AB8E5E6226E6C9300522488 /* Runs.swift in Sources */,
+				9AB5E12D2276196600F88279 /* FormatRunData.swift in Sources */,
 				9AB8E5E4226E6C8500522488 /* Run.swift in Sources */,
 				9AB8E5E8226E720E00522488 /* CLLocationManager.swift in Sources */,
 				9AB8E5EA226E782500522488 /* Location.swift in Sources */,

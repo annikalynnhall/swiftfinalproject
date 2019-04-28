@@ -23,14 +23,13 @@ class PastRunViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        pathMapView.delegate = self
         
         loadMap()
         
-        let formattedDistance = FormatDisplay.distance(Measurement(value: run.distance, unit: UnitLength.meters))
-        let formattedTime = FormatDisplay.time(run.duration)
-        let formattedPace = FormatDisplay.pace(distance: Measurement(value: run.distance, unit: UnitLength.meters),
-                                               seconds: run.duration,
-                                               outputUnit: UnitSpeed.minutesPerMile)
+        let formattedTime = FormatRunData.formatTime(seconds: run.duration)
+        let formattedDistance = FormatRunData.formatDistance(distance: run.distance)
+        let formattedPace = FormatRunData.formatPace(distance: (run.distance * 0.000621371192), time: (Double(run.duration) / 3600))
         distanceLabel.text = "\(formattedDistance)"
         durationLabel.text = "\(formattedTime)"
         paceLabel.text = "\(formattedPace)"
@@ -87,7 +86,7 @@ extension PastRunViewController: MKMapViewDelegate {
         }
         let renderer = MKPolylineRenderer(polyline: polyline)
         renderer.strokeColor = UIColor(red: 108/255.0, green: 124/255.0, blue: 61/255.0, alpha: 1.0)
-        renderer.lineWidth = 3
+        renderer.lineWidth = 6
         return renderer
     }
 }

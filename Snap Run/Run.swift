@@ -13,7 +13,7 @@ import CoreLocation
 
 class Run {
     
-    
+    var runName: String
     var distance: Double
     var duration: Int
     var pace: Double
@@ -23,14 +23,15 @@ class Run {
     var documentID: String
     
     var dictionary: [String: Any] {
-        return ["distance": distance, "duration": duration, "pace":
+        return ["runName": runName,"distance": distance, "duration": duration, "pace":
             pace, "latitudes":
             latitudes, "longitudes": longitudes, "postingUserID": postingUserID]
     }
 
     
     
-    init(distance: Double, duration: Int, pace: Double, latitudes: [Double], longitudes: [Double], postingUserID: String, documentID: String){
+    init(runName: String, distance: Double, duration: Int, pace: Double, latitudes: [Double], longitudes: [Double], postingUserID: String, documentID: String){
+        self.runName = runName
         self.distance = distance
         self.duration = duration
         self.pace = pace
@@ -41,13 +42,14 @@ class Run {
     }
     
     convenience init(dictionary: [String: Any]){
+        let runName = dictionary["runName"] as! String
         let distance = dictionary["distance"] as! Double? ?? 0.0
         let duration = dictionary["duration"] as! Int? ?? 0
         let pace = dictionary["pace"] as! Double? ?? 0.0
         let latitudes = dictionary["latitudes"] as! [Double]? ?? []
         let longitudes = dictionary["longitudes"] as! [Double]? ?? []
         let postingUserID = dictionary["postingUserID"] as! String? ?? ""
-        self.init(distance: distance, duration: duration, pace: pace, latitudes: latitudes, longitudes: longitudes, postingUserID: postingUserID, documentID: "")
+        self.init(runName: runName, distance: distance, duration: duration, pace: pace, latitudes: latitudes, longitudes: longitudes, postingUserID: postingUserID, documentID: "")
     }
     
     func saveData(completion: @escaping (Bool) -> ())  {
