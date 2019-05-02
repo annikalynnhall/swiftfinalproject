@@ -10,7 +10,6 @@
 		9A13E283226E3A4A00C1EFB3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A13E282226E3A4A00C1EFB3 /* AppDelegate.swift */; };
 		9A13E285226E3A4A00C1EFB3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A13E284226E3A4A00C1EFB3 /* ViewController.swift */; };
 		9A13E288226E3A4A00C1EFB3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A13E286226E3A4A00C1EFB3 /* Main.storyboard */; };
-		9A13E28A226E3A4A00C1EFB3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9A13E289226E3A4A00C1EFB3 /* Assets.xcassets */; };
 		9A13E28D226E3A4A00C1EFB3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9A13E28B226E3A4A00C1EFB3 /* LaunchScreen.storyboard */; };
 		9AB5E1292273AD3700F88279 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9AB5E1282273AD3600F88279 /* GoogleService-Info.plist */; };
 		9AB5E12D2276196600F88279 /* FormatRunData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB5E12C2276196600F88279 /* FormatRunData.swift */; };
@@ -26,8 +25,7 @@
 		9AB8E5E8226E720E00522488 /* CLLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB8E5E7226E720E00522488 /* CLLocationManager.swift */; };
 		9AB8E5EA226E782500522488 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB8E5E9226E782500522488 /* Location.swift */; };
 		9AB8E5EC226E7B7D00522488 /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB8E5EB226E7B7D00522488 /* Locations.swift */; };
-		9ADCAB7B2273621C00B941DC /* FormatDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADCAB7A2273621C00B941DC /* FormatDisplay.swift */; };
-		9ADCAB7F227364D200B941DC /* UnitExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADCAB7E227364D200B941DC /* UnitExtensions.swift */; };
+		9ADDFD902277535D00DEBA3B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9ADDFD8F2277535D00DEBA3B /* Assets.xcassets */; };
 		EE1DB9FD15FFE4177814327A /* Pods_Snap_Run.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1EFB5E1DEADF7B678AE8E4B /* Pods_Snap_Run.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +36,6 @@
 		9A13E282226E3A4A00C1EFB3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9A13E284226E3A4A00C1EFB3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9A13E287226E3A4A00C1EFB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9A13E289226E3A4A00C1EFB3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9A13E28C226E3A4A00C1EFB3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9A13E28E226E3A4A00C1EFB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9AB5E1282273AD3600F88279 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = "GoogleService-Info.plist"; path = "../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -55,8 +52,7 @@
 		9AB8E5E7226E720E00522488 /* CLLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationManager.swift; sourceTree = "<group>"; };
 		9AB8E5E9226E782500522488 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		9AB8E5EB226E7B7D00522488 /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
-		9ADCAB7A2273621C00B941DC /* FormatDisplay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatDisplay.swift; sourceTree = "<group>"; };
-		9ADCAB7E227364D200B941DC /* UnitExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UnitExtensions.swift; path = "/Users/annikahall/Desktop/Snap Run/Snap Run/UnitExtensions.swift"; sourceTree = "<absolute>"; };
+		9ADDFD8F2277535D00DEBA3B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../.Trash/Assets.xcassets; sourceTree = "<group>"; };
 		C1EFB5E1DEADF7B678AE8E4B /* Pods_Snap_Run.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Snap_Run.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -112,9 +108,7 @@
 				9AB8E5DF226E553600522488 /* SavedRunsViewController.swift */,
 				9AB8E5E1226E568700522488 /* PastRunViewController.swift */,
 				9A13E286226E3A4A00C1EFB3 /* Main.storyboard */,
-				9A13E289226E3A4A00C1EFB3 /* Assets.xcassets */,
-				9ADCAB7E227364D200B941DC /* UnitExtensions.swift */,
-				9ADCAB7A2273621C00B941DC /* FormatDisplay.swift */,
+				9ADDFD8F2277535D00DEBA3B /* Assets.xcassets */,
 				9AB5E12C2276196600F88279 /* FormatRunData.swift */,
 				9AB8E5E7226E720E00522488 /* CLLocationManager.swift */,
 				9AB8E5D5226E424B00522488 /* SegueFromRight.swift */,
@@ -204,7 +198,7 @@
 			files = (
 				9A13E28D226E3A4A00C1EFB3 /* LaunchScreen.storyboard in Resources */,
 				9AB5E1292273AD3700F88279 /* GoogleService-Info.plist in Resources */,
-				9A13E28A226E3A4A00C1EFB3 /* Assets.xcassets in Resources */,
+				9ADDFD902277535D00DEBA3B /* Assets.xcassets in Resources */,
 				9A13E288226E3A4A00C1EFB3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -328,7 +322,6 @@
 				9AB8E5DC226E4F9E00522488 /* FinishedRunViewController.swift in Sources */,
 				9A13E285226E3A4A00C1EFB3 /* ViewController.swift in Sources */,
 				9AB8E5E0226E553600522488 /* SavedRunsViewController.swift in Sources */,
-				9ADCAB7B2273621C00B941DC /* FormatDisplay.swift in Sources */,
 				9AB8E5E6226E6C9300522488 /* Runs.swift in Sources */,
 				9AB5E12D2276196600F88279 /* FormatRunData.swift in Sources */,
 				9AB8E5E4226E6C8500522488 /* Run.swift in Sources */,
@@ -341,7 +334,6 @@
 				9AB8E5D6226E424B00522488 /* SegueFromRight.swift in Sources */,
 				9AB8E5DA226E461F00522488 /* SegueFromLeft.swift in Sources */,
 				9AB8E5D8226E458A00522488 /* NewRunViewController.swift in Sources */,
-				9ADCAB7F227364D200B941DC /* UnitExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

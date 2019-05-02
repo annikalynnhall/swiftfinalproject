@@ -18,7 +18,7 @@ struct FormatRunData {
     }
     static func formatDistance(distance: Double)-> String{
         let formatString = "%.2f"
-        var milesDistance = distance * 0.000621371192
+        let milesDistance = distance * 0.000621371192
         return String(format: formatString, milesDistance)
     }
     static func formatPace(distance: Double, time: Double)->String {

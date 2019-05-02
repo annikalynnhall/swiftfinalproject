@@ -57,6 +57,10 @@ extension SavedRunsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = "\(runs.runsArray[indexPath.row].runName)"
+        cell.textLabel?.textColor = UIColor(red: 108/255.0, green: 124/255.0, blue: 61/255.0, alpha: 1.0)
+        cell.textLabel?.font = UIFont(name: "Avenir Next Condensed", size: 20)
+        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        
         return cell
     }
     

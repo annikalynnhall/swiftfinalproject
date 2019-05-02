@@ -27,6 +27,7 @@ class NewRunViewController: UIViewController {
     var distance = Measurement(value: 0.0, unit: UnitLength.meters)
     var locationList: [CLLocation] = []
     var run: Run?
+    var paceList = [Double]()
 
     
     override func viewDidLoad() {
@@ -85,7 +86,7 @@ class NewRunViewController: UIViewController {
     }
     
     func nameRun(run: Run) {
-        let alert = UIAlertController(title: "Name Your Run", message: "Give your run a name so that you can find it later in \"Saved Runs\"", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Name Your Run", message: "Give your run a name so that you can find it later in the \"Run Collection\"", preferredStyle: .alert)
         
         alert.addTextField { (textField) in
             textField.text = ""
@@ -101,7 +102,12 @@ class NewRunViewController: UIViewController {
     }
     
     func saveRun(){
-        let newRun = Run(runName: "", distance: distance.value, duration: seconds, pace: distance.value / Double(seconds), latitudes: [Double](), longitudes: [Double](), postingUserID: "", documentID: "")
+        var paceSum = 0.0
+        for pace in paceList{
+            paceSum += pace
+        }
+        var averagePace = paceSum / Double(paceList.count - 1)
+        let newRun = Run(runName: "", distance: distance.value, duration: seconds, pace: averagePace, latitudes: [Double](), longitudes: [Double](), postingUserID: "", documentID: "")
         for location in locationList {
             let locationObject = Location()
             locationObject.timeStamp = location.timestamp
@@ -117,6 +123,9 @@ class NewRunViewController: UIViewController {
     
     func eachSecond() {
         seconds += 1
+        var currentPace = (distance.value * 0.000621371192) / (Double(seconds) / 3600)
+        paceList.append(currentPace)
+        
         updateDisplay()
     }
 
